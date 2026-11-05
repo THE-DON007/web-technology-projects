@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mass Converter</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Page Header -->
+        <header>
+            <h1>Mass Converter</h1>
+            <p>Convert mass measurements quickly and easily.</p>
+        </header>
+
+
+        <!-- Converter Section -->
+        <main>
+
+            <section class="converter-card">
+
+                <h2>Convert Mass</h2>
+
+                <!-- Mass Input -->
+                <div class="input-group">
+
+                    <label for="massValue">Enter Mass Value</label>
+
+                    <input
+                        type="number"
+                        id="massValue"
+                        placeholder="Enter a value"
+                        min="0"
+                        step="any"
+                    >
+
+                </div>
+
+
+                <!-- Unit Selection -->
+                <div class="unit-selection">
+
+                    <!-- Original Unit -->
+                    <div class="input-group">
+
+                        <label for="fromUnit">From</label>
+
+                        <select id="fromUnit">
+
+                            <optgroup label="Metric Units">
+                                <option value="mg">Milligram (mg)</option>
+                                <option value="cg">Centigram (cg)</option>
+                                <option value="dg">Decigram (dg)</option>
+                                <option value="g" selected>Gram (g)</option>
+                                <option value="kg">Kilogram (kg)</option>
+                                <option value="tonne">Metric Tonne (t)</option>
+                            </optgroup>
+
+                            <optgroup label="Imperial Units">
+                                <option value="oz">Ounce (oz)</option>
+                                <option value="lb">Pound (lb)</option>
+                                <option value="stone">Stone (st)</option>
+                                <option value="shortTon">US Short Ton</option>
+                                <option value="longTon">UK Long Ton</option>
+                            </optgroup>
+
+                            <optgroup label="Other Units">
+                                <option value="carat">Carat (ct)</option>
+                                <option value="grain">Grain (gr)</option>
+                                <option value="troyOunce">Troy Ounce (ozt)</option>
+                            </optgroup>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Swap Button -->
+                    <button
+                        type="button"
+                        id="swapButton"
+                        title="Swap units"
+                        aria-label="Swap units"
+                    >
+                        ⇄
+                    </button>
+
+
+                    <!-- Target Unit -->
+                    <div class="input-group">
+
+                        <label for="toUnit">To</label>
+
+                        <select id="toUnit">
+
+                            <optgroup label="Metric Units">
+                                <option value="mg">Milligram (mg)</option>
+                                <option value="cg">Centigram (cg)</option>
+                                <option value="dg">Decigram (dg)</option>
+                                <option value="g">Gram (g)</option>
+                                <option value="kg" selected>Kilogram (kg)</option>
+                                <option value="tonne">Metric Tonne (t)</option>
+                            </optgroup>
+
+                            <optgroup label="Imperial Units">
+                                <option value="oz">Ounce (oz)</option>
+                                <option value="lb">Pound (lb)</option>
+                                <option value="stone">Stone (st)</option>
+                                <option value="shortTon">US Short Ton</option>
+                                <option value="longTon">UK Long Ton</option>
+                            </optgroup>
+
+                            <optgroup label="Other Units">
+                                <option value="carat">Carat (ct)</option>
+                                <option value="grain">Grain (gr)</option>
+                                <option value="troyOunce">Troy Ounce (ozt)</option>
+                            </optgroup>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Action Buttons -->
+                <div class="button-group">
+
+                    <button type="button" id="convertButton">
+                        Convert
+                    </button>
+
+                    <button type="button" id="clearButton">
+                        Clear
+                    </button>
+
+                </div>
+
+
+                <!-- Error Message -->
+                <p id="inputError" role="alert"></p>
+
+
+                <!-- Conversion Result -->
+                <div class="result-section">
+
+                    <h3>Conversion Result</h3>
+
+                    <p id="resultValue">Your result will appear here.</p>
+
+                </div>
+
+
+                <!-- Conversion Formula -->
+                <div class="formula-section">
+
+                    <h3>Conversion Formula</h3>
+
+                    <p id="conversionFormula">
+                        The conversion formula will appear here.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer>
+
+            <p>Mass Converter</p>
+
+            <p>Web Technology Project</p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page Background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 30px 15px;
+}
+
+/* Main Container */
+.container {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 32px;
+    color: #60a5fa;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #94a3b8;
+    font-size: 15px;
+}
+
+/* Converter Card */
+.converter-card {
+    background-color: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Input Section */
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #cbd5e1;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #475569;
+    border-radius: 7px;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #3b82f6;
+}
+
+/* Unit Selection */
+.unit-selection {
+    display: grid;
+    grid-template-columns: 1fr 50px 1fr;
+    gap: 12px;
+    align-items: end;
+    margin-bottom: 25px;
+}
+
+.unit-selection label {
+    display: block;
+    margin-bottom: 10px;
+    color: #cbd5e1;
+    font-weight: bold;
+}
+
+#swapButton {
+    background-color: #334155;
+    color: #60a5fa;
+    border: none;
+    border-radius: 7px;
+    padding: 13px 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#swapButton:hover {
+    background-color: #475569;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#convertButton,
+#clearButton {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 8px;
+    margin-top: 10px;
+}
+
+#convertButton {
+    background-color: #2563eb;
+    color: white;
+}
+
+#convertButton:hover {
+    background-color: #1d4ed8;
+}
+
+#clearButton {
+    background-color: #334155;
+    color: #e2e8f0;
+}
+
+#clearButton:hover {
+    background-color: #475569;
+}
+
+/* Error Message */
+#inputError {
+    color: #f87171;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+/* Result Section */
+.result-section {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.result-section h2 {
+    color: #94a3b8;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+#resultValue {
+    color: #60a5fa;
+    font-size: 26px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+/* Formula Section */
+.formula-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #172033;
+    border-radius: 7px;
+}
+
+.formula-section h3 {
+    color: #cbd5e1;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+#conversionFormula {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 25px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 500px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .converter-card {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    .unit-selection {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    #swapButton {
+        width: 45px;
+        justify-self: center;
+    }
+
+    #convertButton,
+    #clearButton {
+        width: 100%;
+        margin-right: 0;
+    }
+}
