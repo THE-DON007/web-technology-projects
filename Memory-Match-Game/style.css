@@ -1,0 +1,402 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #101827, #263b59);
+    color: white;
+    padding: 30px 15px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+header h1 span {
+    color: #70e1c1;
+}
+
+header p {
+    color: #b5c3d5;
+}
+
+.game-box {
+    background: #19283d;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.3);
+}
+
+/* GAME SETUP */
+
+.game-setup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.difficulty-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.difficulty-section label {
+    font-weight: bold;
+    color: #b5c3d5;
+}
+
+select {
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    border: 1px solid #49658c;
+    background: #263b59;
+    color: white;
+    cursor: pointer;
+}
+
+/* MAIN START BUTTON */
+
+.start-section {
+    text-align: center;
+    width: 100%;
+}
+
+.start-btn {
+    background: #70e1c1;
+    color: #10251f;
+    padding: 17px 45px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 240px;
+    box-shadow: 0 6px 20px rgba(112,225,193,.2);
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.start-btn:hover:not(:disabled) {
+    background: #8cf3d3;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(112,225,193,.35);
+}
+
+.start-btn:disabled {
+    background: #3c9c85;
+    color: white;
+    cursor: default;
+    opacity: 1;
+    transform: none;
+}
+
+#startStatus {
+    color: #b5c3d5;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+
+/* SECONDARY CONTROLS */
+
+.extra-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 18px 0;
+    margin-bottom: 20px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+button {
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+button:active:not(:disabled) {
+    transform: scale(.96);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: .45;
+}
+
+.restart-btn {
+    background: #354d70;
+    color: white;
+}
+
+#soundBtn {
+    background: #354d70;
+}
+
+#hintBtn:hover:not(:disabled) {
+    background: #a77b36;
+}
+
+#pauseBtn:hover:not(:disabled) {
+    background: #526e99;
+}
+
+
+/* STATISTICS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.stat {
+    text-align: center;
+    background: #263b59;
+    padding: 15px 8px;
+    border-radius: 12px;
+}
+
+.stat p {
+    color: #b5c3d5;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.stat h2 {
+    font-size: 23px;
+}
+
+
+/* MEMORY BOARD */
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.board.hard {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.card {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    background: #354d70;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(25px, 5vw, 42px);
+    cursor: pointer;
+    transition: transform .3s, background .3s;
+    border: 2px solid #49658c;
+    user-select: none;
+}
+
+.card:hover:not(.flipped):not(.matched) {
+    transform: translateY(-4px);
+}
+
+.card.flipped,
+.card.matched {
+    background: #e5f4ff;
+    color: #17253a;
+    border-color: #70e1c1;
+}
+
+.card.matched {
+    background: #c8f7e5;
+    cursor: default;
+}
+
+/* HINT EFFECT */
+
+.card.hint {
+    animation: hintPulse .5s ease-in-out 3;
+    border-color: #ffd166;
+}
+
+@keyframes hintPulse {
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 20px rgba(255,209,102,.8);
+    }
+}
+
+
+/* MESSAGE */
+
+.message {
+    text-align: center;
+    margin-top: 22px;
+    color: #b5c3d5;
+    min-height: 25px;
+}
+
+.message strong {
+    color: #70e1c1;
+}
+
+
+/* POPUPS */
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.8);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.overlay.show {
+    display: flex;
+    animation: fadeIn .25s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    background: #19283d;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 15px 40px rgba(0,0,0,.4);
+}
+
+.modal h1 {
+    font-size: 45px;
+}
+
+.modal h2 {
+    margin: 15px 0;
+    color: #70e1c1;
+}
+
+.modal h3 {
+    color: #70e1c1;
+    margin: 20px 0 10px;
+}
+
+.modal p {
+    color: #b5c3d5;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.modal strong {
+    color: #70e1c1;
+}
+
+.modal button {
+    background: #70e1c1;
+    color: #10251f;
+    margin-top: 15px;
+    width: 100%;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width: 700px) {
+
+    .stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .difficulty-section {
+        flex-direction: column;
+    }
+
+    .extra-controls button {
+        flex: 1 1 40%;
+    }
+
+}
+
+@media(max-width: 550px) {
+
+    body {
+        padding: 20px 10px;
+    }
+
+    header h1 {
+        font-size: 34px;
+    }
+
+    .game-box {
+        padding: 15px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .start-btn {
+        width: 100%;
+    }
+
+    .extra-controls {
+        gap: 8px;
+    }
+
+    .extra-controls button {
+        flex: 1 1 100%;
+    }
+
+    .board {
+        gap: 8px;
+    }
+
+    .board.hard {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .modal {
+        padding: 25px;
+    }
+
+}

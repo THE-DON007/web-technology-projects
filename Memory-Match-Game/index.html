@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memory Match Challenge</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Memory <span>Match</span></h1>
+            <p>Flip the cards, find matching pairs and challenge your memory!</p>
+        </header>
+
+        <div class="game-box">
+
+            <!-- GAME SETUP -->
+            <div class="game-setup">
+
+                <div class="difficulty-section">
+                    <label for="difficulty">Choose Difficulty</label>
+
+                    <select id="difficulty">
+                        <option value="easy">Easy - 8 Cards</option>
+                        <option value="medium" selected>Medium - 16 Cards</option>
+                        <option value="hard">Hard - 24 Cards</option>
+                    </select>
+                </div>
+
+                <!-- PROMINENT START BUTTON -->
+                <div class="start-section">
+
+                    <button class="start-btn" id="startBtn">
+                        ▶ START GAME
+                    </button>
+
+                    <p id="startStatus">
+                        Select your difficulty and get ready!
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SECONDARY CONTROLS -->
+            <div class="extra-controls">
+
+                <button class="restart-btn" id="restartBtn">
+                    ↻ Restart
+                </button>
+
+                <button class="restart-btn" id="hintBtn" disabled>
+                    💡 Hint (-25)
+                </button>
+
+                <button class="restart-btn" id="pauseBtn" disabled>
+                    ⏸ Pause
+                </button>
+
+                <button class="restart-btn" id="soundBtn">
+                    🔊 Sound ON
+                </button>
+
+            </div>
+
+
+            <!-- GAME STATISTICS -->
+            <div class="stats">
+
+                <div class="stat">
+                    <p>MOVES</p>
+                    <h2 id="moves">0</h2>
+                </div>
+
+                <div class="stat">
+                    <p>MATCHED</p>
+                    <h2 id="matched">0 / 8</h2>
+                </div>
+
+                <div class="stat">
+                    <p>TIME</p>
+                    <h2 id="timer">00:00</h2>
+                </div>
+
+                <div class="stat">
+                    <p>SCORE</p>
+                    <h2 id="score">0</h2>
+                </div>
+
+                <div class="stat">
+                    <p>BEST TIME</p>
+                    <h2 id="best">--:--</h2>
+                </div>
+
+            </div>
+
+
+            <!-- MEMORY CARD BOARD -->
+            <div class="board" id="board"></div>
+
+            <p class="message" id="message">
+                Select a difficulty and click Start Game!
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PAUSE POPUP -->
+    <div class="overlay" id="pauseOverlay">
+
+        <div class="modal">
+
+            <h1>⏸️</h1>
+
+            <h2>Game Paused</h2>
+
+            <p>Your progress is safe. Continue whenever you're ready.</p>
+
+            <button id="resumeBtn">
+                ▶ Resume Game
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- WINNING POPUP -->
+    <div class="overlay" id="winOverlay">
+
+        <div class="modal">
+
+            <h1>🏆</h1>
+
+            <h2>Congratulations!</h2>
+
+            <p>You successfully matched all the cards!</p>
+
+            <p>Moves: <strong id="finalMoves"></strong></p>
+
+            <p>Time: <strong id="finalTime"></strong></p>
+
+            <p>Final Score: <strong id="finalScore"></strong></p>
+
+            <h3 id="performanceTitle">Excellent Work!</h3>
+
+            <p id="performanceMessage">
+                You completed the challenge!
+            </p>
+
+            <button id="playAgainBtn">
+                Play Again
+            </button>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
